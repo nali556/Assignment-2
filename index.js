@@ -146,3 +146,39 @@ function myPush(arr, element){
 }
 myPush(myArr, 4)
 console.log("myArr after:", myArr)
+//10. lastIndexOf, similar to indexOf but do not break
+console.log("myUnshift() / lastIndexOf on dupArr")
+dupArr = [1,2,2,2,3,4]
+function myLastIndexOf(arr, value){
+  let index = -1
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === value){
+      index = i
+    }
+  }
+  return index
+}
+console.log("dupArr:", dupArr)
+console.log("Index of last 2:", myLastIndexOf(dupArr, 2))
+//11. Object.keys()
+console.log("grabKeys:")
+const myObj = {
+  a: "foobar",
+  b: 21,
+  c: true
+}
+function grabKeys(obj){
+  for(keys in obj){
+    console.log(keys)
+  }
+}
+grabKeys(myObj)
+//12. Object values
+console.log("grabValues for myObj:")
+function grabValues(obj){
+  for(key in obj){
+    let value = obj[key]
+    console.log(value)
+  }
+}
+grabValues(myObj)
