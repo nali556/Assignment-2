@@ -40,7 +40,7 @@ console.log("Map array after:")
 myEach(printArr, mapArr)
 
 //3. myFilter()
-console.log("myFilter:")
+console.log("\nmyFilter:")
 const filterArray = [1,2,3,4,5,6,7,8]
 //filter() creates a new array that has the values that meet the condition.
 function myFilter(callback, arr, condition){
@@ -64,27 +64,27 @@ console.log("Array before filter:")
 myEach(printArr, filterArray)
 console.log("New array after")
 console.log(myFilter(checkValue, filterArray, 4))
-//4. some()
-console.log("some():")
+//4. some(), at leaast one element has to meet the requirement in order to return true
+console.log("\nsome():")
 //Using filterArray again
 function mySome(callback, arr, condition){
   for(let i = 0; i < arr.length; i++){
-    if(callback(arr,condition)){
+    if(callback(arr[i],condition)){
       return true
+      break;
     }
     else{
       return false
-      break;
     }
   }
 }
 //We can use the same function checkValue
 console.log(mySome(checkValue, filterArray, 4))
-//5. every(), will need to change mySome,
-console.log("myEvery:")
+//5. every() checks if every element meets the condition, all have to meet it in order to return true
+console.log("\nmyEvery:")
 function myEvery(callback, arr, condition){
   for(let i = 0; i < arr.length; i++){
-    if(callback(arr,condition)){
+    if(callback(arr[i],condition)){
       return true
     }
     else{
@@ -94,7 +94,7 @@ function myEvery(callback, arr, condition){
   }
 }
 console.log(mySome(checkValue, filterArray, 4))
-//6.Reduce
+//6.Reduce goes thru all of the array, in this case to add all elements together
 console.log("myReduce:")
 const reduceArr = [1,2,3,4]
 function myReduce(callback, arr){
@@ -108,7 +108,7 @@ function getTotal(value){
   return value
 }
 console.log("total value of array:", myReduce(getTotal, reduceArr))
-//7. Includes
+//7. Includes, if one index includes a value, true is returned.
 console.log("\nmyInclude:")
 const myArr = [1,2,3,5,21]
 function myIncludes(arr, value){
@@ -124,8 +124,8 @@ console.log("myArr:")
 myEach(printArr, myArr)
 console.log("Checking if myArr has 21:", myIncludes(myArr, 21))
 console.log("Checking if myArr has 4:", myIncludes(myArr, 4))
-//8. IndexOf()
-console.log("IndexOf, using the same array myArr:")
+//8. IndexOf() returns the index of a specified value
+console.log("\nIndexOf, using the same array myArr:")
 function myIndexOf(arr, value){
   let index = -1
   for(let i = 0; i < arr.length; i++){
@@ -138,7 +138,7 @@ function myIndexOf(arr, value){
 }
 console.log("Getting index of 21 in myArray", myIndexOf(myArr, 21))
 console.log("Checking if -1 is given when looking for 4", myIndexOf(myArr, 4))
-//9. Push
+//9. Push() adds a value to the end of an array
 console.log("\nmyPush: Adding 4 to myArr")
 console.log("myArr before:", myArr)
 function myPush(arr, element){
@@ -146,8 +146,8 @@ function myPush(arr, element){
 }
 myPush(myArr, 4)
 console.log("myArr after:", myArr)
-//10. lastIndexOf, similar to indexOf but do not break
-console.log("myUnshift() / lastIndexOf on dupArr")
+//10. lastIndexOf, similar to indexOf, but returns the LAST index of a certain value instead of first
+console.log("\nmyUnshift() / lastIndexOf on dupArr")
 dupArr = [1,2,2,2,3,4]
 function myLastIndexOf(arr, value){
   let index = -1
@@ -160,8 +160,8 @@ function myLastIndexOf(arr, value){
 }
 console.log("dupArr:", dupArr)
 console.log("Index of last 2:", myLastIndexOf(dupArr, 2))
-//11. Object.keys()
-console.log("grabKeys:")
+//11. Object.keys() returns the keys only
+console.log("\ngrabKeys:")
 const myObj = {
   a: "foobar",
   b: 21,
@@ -173,8 +173,8 @@ function grabKeys(obj){
   }
 }
 grabKeys(myObj)
-//12. Object values
-console.log("grabValues for myObj:")
+//12. Object values returns the values only
+console.log("\ngrabValues for myObj:")
 function grabValues(obj){
   for(key in obj){
     let value = obj[key]
