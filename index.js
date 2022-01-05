@@ -138,3 +138,11 @@ function myIndexOf(arr, value){
 }
 console.log("Getting index of 21 in myArray", myIndexOf(myArr, 21))
 console.log("Checking if -1 is given when looking for 4", myIndexOf(myArr, 4))
+//9. Push
+console.log("\nmyPush: Adding 4 to myArr")
+console.log("myArr before:", myArr)
+function myPush(arr, element){
+  arr[arr.length] = element
+}
+myPush(myArr, 4)
+console.log("myArr after:", myArr)
