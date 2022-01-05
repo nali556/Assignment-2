@@ -136,3 +136,5 @@ function myIndexOf(arr, value){
   }
   return index
 }
+console.log("Getting index of 21 in myArray", myIndexOf(myArr, 21))
+console.log("Checking if -1 is given when looking for 4", myIndexOf(myArr, 4))
